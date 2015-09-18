@@ -4,7 +4,7 @@ $displayTimezone = 'Europe/Moscow';
 $internalTimezone = 'UTC';
 
 return [
-    'name' => 'Adjectives-game',
+    'name' => 'project-name',
     'timeZone' => $internalTimezone,
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'sourceLanguage' => '00', //unsupported language code

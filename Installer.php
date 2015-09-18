@@ -27,6 +27,10 @@ class Installer extends \yii\composer\Installer
                 file_put_contents($config, $content);
             }
         }
+
+        $config = 'common/config/main.php';
+        $content = str_replace('project-name', $databaseName, file_get_contents($config));
+        file_put_contents($config, $content);
     }
 
     public static function postCreateProject($event)
