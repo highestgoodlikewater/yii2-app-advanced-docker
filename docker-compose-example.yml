@@ -1,0 +1,47 @@
+app:
+  image: ubuntu:14.04
+  volumes:
+    - .:/var/www
+
+phpfpm:
+  build: config/docker/php-fpm
+  volumes_from:
+    - app
+  volumes:
+    - ./config/docker/php-fpm:/etc/php5/fpm/pool.d
+    - /Users/dizews/.composer/config.json:/root/.composer/config.json
+    - /Users/dizews/.gitconfig:/root/.gitconfig
+  working_dir: /var/www
+  environment:
+    - TERM=xterm
+  expose:
+    - 9000
+    - 9009
+  links:
+    - db
+    #- redis
+nginx:
+  image: nginx:1.9.4
+  volumes_from:
+    - app
+  volumes:
+    - ./config/docker/nginx/conf.d:/etc/nginx/conf.d
+  ports:
+    - 8081:80
+  links:
+    - phpfpm
+
+db:
+  image: postgres:9.4
+  volumes:
+    - /mnt/sda1/data/pgdata:/var/lib/postgresql/data
+  ports:
+    - 5432:5432
+  environment:
+    - POSTGRES_USER=database-username
+    - POSTGRES_PASSWORD=password
+
+#redis:
+#  image: redis:3.0.2
+#  expose:
+#    - 6379
