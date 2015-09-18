@@ -5,7 +5,7 @@
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/dizews/yii2-app-advanced-docker/issues",
+        "issues": "https://github.com/dizews/yii2-app-advanced-docker/issues"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
