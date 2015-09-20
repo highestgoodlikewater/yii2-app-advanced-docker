@@ -7,7 +7,7 @@
     "support": {
         "issues": "https://github.com/dizews/yii2-app-advanced-docker/issues"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
         "php": ">=5.6.0",
